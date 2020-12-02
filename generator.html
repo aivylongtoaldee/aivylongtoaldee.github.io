@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Invite Generator</title>
+</head>
+<body>
+  <div style="text-align: center;">
+    <input id="i" type="text" style="width: 100%; height: 30px; padding: 5px; font-size: 16px;" /><br /><br />
+    <button id="b" type="button" style="height: 30px; margin-right: 20px; width: 50%;">Generate</button><br /><br />
+    <input id="i2" type="text" style="width: 100%; height: 30px; padding: 5px; font-size: 16px;" placeholder="Copy the text that will appear here..." />
+  </div>
+  <script src="./assets/js/jquery-3.5.1.min.js"></script>
+  <script>
+    (function() {
+      $('#b').click(function() {
+        const i = $('#i').val();
+        $('#i2').val('https://aivylongtoaldee.github.io?name=' + encodeURIComponent(i));
+      });
+
+    })();
+  </script>
+</body>
+</html>

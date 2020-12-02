@@ -116,6 +116,10 @@ body {
   font-weight: normal;
 }
 
+#cover h2#married {
+  display: none;
+}
+
 #cover span {
   border-right: 1px solid #cacac7;
   display: inline-block;

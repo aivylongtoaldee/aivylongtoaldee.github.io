@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Status</title>
+</head>
+<body>
+  <div>
+    <p>Total Yes: <b id="yes">0</b></p>
+    <p>Total No: <b id="no">0</b></p>
+  </div>
+  <table border="1" cellpadding="10px" cellspacing="0px" width="100%">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Reply</th>
+      </tr>
+    </thead>
+    <tbody id="replies"></tbody>
+  </table>
+  <script src="./assets/js/jquery-3.5.1.min.js"></script>
+  <script>
+    (async function() {
+
+      const headers = { "Security-key": "aivylongtoaldee" };
+      const response = await fetch('https://json.extendsclass.com/bin/bf27e08d8d16', {
+        headers,
+        method: 'GET',
+      });
+
+      const result = await response.json();
+      const rows = [];
+
+      let yesCount = 0;
+
+      for (const name in result) {
+        rows.push(`
+          <tr>
+            <td style="text-align: center;">${rows.length + 1}</td>
+            <td>${name}</td>
+            <td style="text-align: center;">${result[name]}</td>
+          </tr>
+        `);
+
+        yesCount += (result[name] === 'yes' ? 1 : 0);
+      }
+
+      $('#replies').html(rows.join(''));
+      $('#yes').text(yesCount);
+      $('#no').text(rows.length - yesCount);
+
+    })();
+  </script>
+</body>
+</html>

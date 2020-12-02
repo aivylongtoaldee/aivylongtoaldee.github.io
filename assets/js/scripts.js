@@ -48,6 +48,8 @@ function initNav() {
   document.querySelector('body').addEventListener('swiped-right', swipeNavigate('right'));
 }
 
+let countDownTimer;
+
 function runCountdown() {
   const now = new Date();
   const target = new Date('2021/01/23 10:00:00');
@@ -69,6 +71,15 @@ function runCountdown() {
   // calculate seconds
   const seconds = Math.floor(diffInSeconds);
 
+  if (target < now || (days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0)) {
+    clearInterval(countDownTimer);
+    $('span.cd').remove();
+    $('h2#unmarried').remove();
+    $('h2#married').show();
+
+    return;
+  }
+
   if (days > 0) {
     // days
     $('span#days > b').text(('' + days).padStart(2, '0'));
@@ -88,8 +99,6 @@ function runCountdown() {
   $('span#seconds > i').text(' second' + (seconds <= 1 ? '' : 's'));
 }
 
-let countDownTimer;
-
 function initCountdown() {
   countDownTimer = setInterval(runCountdown, 1000);
 
@@ -108,12 +117,33 @@ function initRsvp() {
 }
 
 async function initForm() {
+  $('#rsvp-thanks').hide();
+
   const onConfirm = async() => {
+
+    $('#confirm').attr('disabled', 'disabled').text('Confirming...');
+
     const name = $('#name').val();
     const reply = $('#reply').val();
 
-    $.getJSON('https://jsonbase.com/aivylongtoaldee/rsvp', data => {
-      console.log(data);
+    if (!name || !reply) return;
+
+    const headers = { "Security-key": "aivylongtoaldee" };
+    await fetch('https://json.extendsclass.com/bin/bf27e08d8d16', {
+      headers,
+      method: 'PATCH',
+      body: JSON.stringify({
+        [name]: reply,
+      }),
+    });
+
+    $('#rsvp-form').fadeOut(2000, function() {
+      $('#rsvp-thanks').fadeIn(function () {
+        $('#rsvp-thanks').fadeOut(5000, function() {
+          $('#rsvp-form').fadeIn();
+          $('#confirm').removeAttr('disabled').text('Confirm');
+        });
+      });
     });
   };
 
