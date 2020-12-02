@@ -129,7 +129,7 @@ async function initForm() {
     if (!name || !reply) return;
 
     const headers = { "Security-key": "aivylongtoaldee" };
-    await fetch('https://json.extendsclass.com/bin/ec7603a7610c', {
+    await fetch('https://json.extendsclass.com/bin/86c2ef76c708', {
       headers,
       method: 'PATCH',
       body: JSON.stringify({
