@@ -1,0 +1,24 @@
+::-webkit-scrollbar-track {
+  border: 5px solid #939393;
+  background-color: #939393;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  background-color: #dfe6e9;
+  position: absolute;
+  left: 30px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6f6e6a;
+}
+
+::-webkit-scrollbar:focus {
+  width: 150px;
+}
+
+.bigIt {
+  font-weight: bolder;
+  font-size: 3vh;
+}

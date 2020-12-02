@@ -1,0 +1,16 @@
+@media (min-width: 920px) {
+  .section > div {
+    width: 50%;
+  }
+
+  #cover span {
+    font-weight: bolder;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 365px) {
+  #cover span {
+    border: none;
+  }
+}
