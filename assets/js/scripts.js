@@ -107,8 +107,22 @@ function initRsvp() {
   }
 }
 
+async function initForm() {
+  const onConfirm = async() => {
+    const name = $('#name').val();
+    const reply = $('#reply').val();
+
+    $.getJSON('https://jsonbase.com/aivylongtoaldee/rsvp', data => {
+      console.log(data);
+    });
+  };
+
+  $('#confirm').click(onConfirm);
+}
+
 (() => {
   initNav();
   initCountdown();
   initRsvp();
+  initForm();
 }) ();
