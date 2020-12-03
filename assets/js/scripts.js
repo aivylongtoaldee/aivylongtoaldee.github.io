@@ -77,6 +77,8 @@ function runCountdown() {
     $('h2#unmarried').remove();
     $('h2#married').show();
 
+    $('span[data-target="#others"], #others').remove();
+
     return;
   }
 
