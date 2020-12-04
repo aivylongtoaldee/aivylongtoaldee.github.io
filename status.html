@@ -22,13 +22,9 @@
   <script>
     (async function() {
 
-      const headers = { "Security-key": "aivylongtoaldee" };
-      const response = await fetch('https://json.extendsclass.com/bin/86c2ef76c708', {
-        headers,
-        method: 'GET',
-      });
-
+      const response = await fetch('https://jsonstorage.net/api/items/c9b4a491-7283-4980-9b7a-6c9768ff5daa');
       const result = await response.json();
+
       const rows = [];
 
       let yesCount = 0;

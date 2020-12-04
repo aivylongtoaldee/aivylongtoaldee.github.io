@@ -118,6 +118,28 @@ function initRsvp() {
   }
 }
 
+async function request(data = undefined) {
+  const response = await fetch('https://jsonstorage.net/api/items/c9b4a491-7283-4980-9b7a-6c9768ff5daa');
+  let result = await response.json();
+
+  if (!data) {
+    return result;
+  }
+
+  result = {
+    ...result,
+    ...data,
+  };
+
+  await fetch('https://jsonstorage.net/api/items/c9b4a491-7283-4980-9b7a-6c9768ff5daa', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(result),
+  });
+
+  return result;
+}
+
 async function initForm() {
   $('#rsvp-thanks').hide();
 
@@ -130,14 +152,7 @@ async function initForm() {
 
     if (!name || !reply) return;
 
-    const headers = { "Security-key": "aivylongtoaldee" };
-    await fetch('https://json.extendsclass.com/bin/86c2ef76c708', {
-      headers,
-      method: 'PATCH',
-      body: JSON.stringify({
-        [name]: reply,
-      }),
-    });
+    await request({ [name]: reply });
 
     $('#rsvp-form').fadeOut(2000, function() {
       $('#rsvp-thanks').fadeIn(function () {
@@ -152,9 +167,11 @@ async function initForm() {
   $('#confirm').click(onConfirm);
 }
 
-(() => {
+(async () => {
+
   initNav();
   initCountdown();
   initRsvp();
   initForm();
+
 }) ();
