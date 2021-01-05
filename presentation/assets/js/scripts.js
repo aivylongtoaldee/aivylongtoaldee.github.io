@@ -36,6 +36,6 @@ function glitch(t) {
 
 
 (function() {
-  glitch(10000);
+  glitch(3200);
   runTimer();
 })();
