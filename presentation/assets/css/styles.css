@@ -4,6 +4,7 @@ body {
   overflow: hidden;
 }
 
+
 div#container {
   width: 100vw;
   height: 100vh;
@@ -13,13 +14,35 @@ div#container {
   align-items: center;
 }
 
-img#bad-reception {
+img#bad-reception, div#play-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 98;
+}
+
+div#play-container {
+  background-color: #000;
+  z-index: 100;
+  text-align: center;
+}
+
+div#play-container button {
+  position: absolute;
+  top: 45%;
+  left: 40%;
+  width: 20%;
+  height: 10%;
+  background-color: gold;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: bolder;
+  font-size: 40px;
+  cursor: pointer;
+  font-family: 'Press Start 2P';
 }
 
 div#vhs-effect {
@@ -64,18 +87,37 @@ div#vhs-effect b#ve-year {
   z-index: 99;
 }
 
-div#aldee, div#aivy {
-  width: 40%;
+div#slideshow {
+  width: 80%;
   position: absolute;
+  left: 10%;
   height: 80vh;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-div#aldee {
+div#film-top {
+  width: 80%;
+  position: absolute;
   left: 10%;
+  height: 7vh;
+  background-repeat: repeat;
+  background-image: url(../img/strip.png);
+  z-index: 97;
+  top: 91px;
+  background-size: 62px;
+  opacity: 0.6;
 }
 
-div#aivy {
-  right: 10%;
+div#film-bottom {
+  width: 80%;
+  position: absolute;
+  left: 10%;
+  height: 7vh;
+  background-repeat: repeat;
+  background-image: url(../img/strip.png);
+  z-index: 97;
+  bottom: 91px;
+  background-size: 62px;
+  opacity: 0.6;
 }
