@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+div#container {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img#bad-reception {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 98;
+}
+
+div#vhs-effect {
+  width: 95vw;
+  height: 95vh;
+  border-radius: 20px;
+  font-family: 'Press Start 2P';
+  color: #fff;
+  position: relative;
+  font-size: 21px;
+}
+
+div#vhs-effect * {
+  position: absolute;
+}
+
+div#vhs-effect b#ve-play {
+  top: 30px;
+  left: 40px;
+  z-index: 99;
+}
+
+div#vhs-effect b#ve-names {
+  bottom: 30px;
+  left: 40px;
+  z-index: 99;
+}
+
+div#vhs-effect div#ve-time span {
+  position: relative;
+}
+
+div#vhs-effect div#ve-time {
+  top: 30px;
+  right: 40px;
+  z-index: 99;
+}
+
+div#vhs-effect b#ve-year {
+  bottom: 30px;
+  right: 40px;
+  z-index: 99;
+}
+
+div#aldee, div#aivy {
+  width: 40%;
+  position: absolute;
+  height: 80vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+div#aldee {
+  left: 10%;
+}
+
+div#aivy {
+  right: 10%;
+}
