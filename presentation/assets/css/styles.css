@@ -32,12 +32,12 @@ div#play-container {
 div#play-container button {
   position: absolute;
   top: 45%;
-  left: 40%;
-  width: 20%;
+  left: 35%;
+  width: 30%;
   height: 10%;
-  background-color: gold;
+  background-color: #040724;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   color: #fff;
   font-weight: bolder;
   font-size: 40px;
@@ -57,6 +57,7 @@ div#vhs-effect {
 
 div#vhs-effect * {
   position: absolute;
+  background-color: #000;
 }
 
 div#vhs-effect b#ve-play {
@@ -88,36 +89,12 @@ div#vhs-effect b#ve-year {
 }
 
 div#slideshow {
-  width: 80%;
+  width: 100vw;
   position: absolute;
-  left: 10%;
-  height: 80vh;
-  background-size: cover;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-size: contain;
   background-repeat: no-repeat;
-}
-
-div#film-top {
-  width: 80%;
-  position: absolute;
-  left: 10%;
-  height: 7vh;
-  background-repeat: repeat;
-  background-image: url(../img/strip.png);
-  z-index: 97;
-  top: 91px;
-  background-size: 62px;
-  opacity: 0.6;
-}
-
-div#film-bottom {
-  width: 80%;
-  position: absolute;
-  left: 10%;
-  height: 7vh;
-  background-repeat: repeat;
-  background-image: url(../img/strip.png);
-  z-index: 97;
-  bottom: 91px;
-  background-size: 62px;
-  opacity: 0.6;
+  background-position: center;
 }

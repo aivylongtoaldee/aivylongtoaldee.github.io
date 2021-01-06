@@ -2,7 +2,7 @@ let timerInterval;
 let blinkInterval;
 let slideInterval;
 
-const photosCount = 3;
+const photosCount = 4;
 
 function runTimer() {
   let s = 0, m = 0, h = 0;
@@ -47,15 +47,16 @@ function playSlideshow(n) {
 
     i++;
 
-    // sel.hide('slide', { direction: 'left' }, () => {
-    //   sel.css('backgroundImage', `url(./assets/compilations/${i}.png)`)
-    //   .show('slide', { direction: 'right' });
-    // });
-    sel.fadeOut(() => {
-      sel
-        .css('backgroundImage', `url(./assets/compilations/${i}.png)`)
-        .fadeIn();
-    });
+    if ([2].includes(i)) {
+      glitch(200, () => {
+        sel.hide();
+        sel.css('backgroundImage', `url(./compilations/${i}.jpg)`).fadeIn();
+      });
+    } else {
+      sel.fadeOut(() => {
+        sel.css('backgroundImage', `url(./compilations/${i}.jpg)`).fadeIn();
+      });
+    }
 
     if (i >= photosCount) {
       return clearInterval(slideInterval);
@@ -74,12 +75,14 @@ function reset() {
   clearInterval(timerInterval);
   clearInterval(blinkInterval);
   clearInterval(slideInterval);
+
+  glitch(999999999);
 }
 
 function play() {
   $('div#play-container').remove();
 
-  glitch(3600, () => {
+  glitch(2600, () => {
 
     runTimer();
     document.querySelector('audio#sound').play();
