@@ -52,7 +52,7 @@ let countDownTimer;
 
 function runCountdown() {
   const now = new Date();
-  const target = new Date('2021/01/23 10:00:00');
+  const target = new Date('2021/01/23 13:00:00');
 
   let diffInSeconds = Math.abs(target - now) / 1000;
 
