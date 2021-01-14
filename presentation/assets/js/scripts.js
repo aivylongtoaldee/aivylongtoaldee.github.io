@@ -2,7 +2,7 @@ let timerInterval;
 let blinkInterval;
 let slideInterval;
 
-const photosCount = 4;
+const photosCount = 42;
 
 function runTimer() {
   let s = 0, m = 0, h = 0;
@@ -77,6 +77,7 @@ function reset() {
   clearInterval(slideInterval);
 
   glitch(999999999);
+  $('#vhs-effect').hide();
 }
 
 function play() {
@@ -88,7 +89,8 @@ function play() {
     document.querySelector('audio#sound').play();
     document.querySelector('audio#sound').onended = reset;
     blinkPlayIcon();
-    playSlideshow(5000);
+    // playSlideshow(3000);
+    playSlideshow(146000 / photosCount);
 
   });
 }
