@@ -98,3 +98,15 @@ div#slideshow {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+h3#ve-caption {
+  position: fixed; 
+  z-index: 9999; 
+  bottom: 10px; 
+  left: 0;
+  right: 0;
+  background-color: white; 
+  color: black; 
+  padding: 10px; 
+  border: 2px solid black;
+}

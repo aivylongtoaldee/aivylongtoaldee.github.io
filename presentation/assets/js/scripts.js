@@ -2,7 +2,7 @@ let timerInterval;
 let blinkInterval;
 let slideInterval;
 
-const photosCount = 42;
+const photosCount = 45;
 
 function runTimer() {
   let s = 0, m = 0, h = 0;
@@ -40,7 +40,7 @@ function glitch(t, cb) {
 }
 
 function playSlideshow(n) {
-  let i = 0;
+  let i = 1;
 
   slideInterval = setInterval(() => {
     const sel = $('#slideshow');
@@ -58,10 +58,27 @@ function playSlideshow(n) {
       });
     }
 
+    const caption = getCaption(i);
+    
+    if (caption) {
+      $('#ve-caption').html(caption).show();
+    } else {
+      $('#ve-caption').hide();
+    }
+
     if (i >= photosCount) {
       return clearInterval(slideInterval);
     }
   }, n);
+}
+
+function getCaption(n) {
+  return {
+    2: 'Baby',
+    3: 'Date #0001 - The Port',
+    7: 'Boys Avenue Concert - Waterfront',
+    15: 'Taiwan',
+  }[n] || '';
 }
 
 function blinkPlayIcon() {
